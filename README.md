@@ -9,7 +9,9 @@ The source data resides in S3 and needs to be processed in Sparkify's data wareh
 
 ### Dataset 
 The s3 links for each:
+</br>
 **Log data**: `s3://udacity-dend/log_data`
+</br>
 **Song data**: `s3://udacity-dend/song_data`
 
 ### Building the operators
@@ -28,13 +30,19 @@ Dimension loads need to have a truncate-insert pattern where the target table is
 The final operator to create is the data quality operator, which is used to run checks on the data itself. The operator's main functionality is to receive one or more SQL based test cases along with the expected results and execute the tests. For each the test, the test result and expected result needs to be checked and if there is no match, the operator should raise an exception and the task should retry and fail eventually.
 
 ### Dags
-The dag view below illustrates the task dependencies:
+The pictures below illustrate the task dependencies:
+</br>
 `Configuration of the dag`
+</br>
+
 - The DAG does not have dependencies on past runs
 - On failure, the task are retried 3 times
 - Retries happen every 5 minutes
 - Catchup is turned off
 - Do not email on retry
 
+##### Dag View
 ![Dag View](dag_view.png)
+
+##### Tree View
 ![Tree View](tree_view.png)
