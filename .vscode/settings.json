@@ -1,0 +1,4 @@
+{
+    "terminal.integrated.rendererType": "canvas",
+    "python.analysis.memory.keepLibraryAst": true
+}
