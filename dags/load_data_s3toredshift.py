@@ -36,10 +36,11 @@ with DAG(parent_dag,
         task_id='Stage_events',
         dag=dag,
         table='staging_events',
-        s3_key="log_data",
+        s3_key="log_data/{execution_date.year}/{execution_date.month}/{ds}-events.json",
+        provide_context=True,
         filetype='json'
     )
-    
+
     stage_songs_to_redshift = StageToRedshiftOperator(
         task_id='Stage_songs',
         dag=dag,
